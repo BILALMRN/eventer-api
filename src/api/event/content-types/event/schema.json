@@ -28,21 +28,21 @@
         "canceled",
         "closed"
       ],
-      "required": true,
+      "required": false,
       "default": "pending"
     },
     "start_datetime": {
       "type": "datetime",
-      "required": true
+      "required": false
     },
     "end_datetime": {
       "type": "datetime",
-      "required": true
+      "required": false
     },
     "urlvideo": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
@@ -50,15 +50,10 @@
     "urlphoto": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "videos"
       ]
-    },
-    "event_id": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true
     },
     "category": {
       "type": "relation",

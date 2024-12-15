@@ -452,8 +452,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    end_datetime: Schema.Attribute.DateTime & Schema.Attribute.Required;
-    event_id: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    end_datetime: Schema.Attribute.DateTime;
     invitations: Schema.Attribute.Relation<
       'oneToMany',
       'api::invitation.invitation'
@@ -463,19 +462,18 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
-    start_datetime: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    start_datetime: Schema.Attribute.DateTime;
     statu: Schema.Attribute.Enumeration<
       ['pending', 'active', 'canceled', 'closed']
     > &
-      Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'pending'>;
     tickets: Schema.Attribute.Relation<'oneToMany', 'api::ticket.ticket'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    urlphoto: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
-    urlvideo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    urlphoto: Schema.Attribute.Media<'videos'>;
+    urlvideo: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -541,7 +539,8 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    review_text: Schema.Attribute.Integer &
+    review_text: Schema.Attribute.String;
+    starts: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
@@ -1049,7 +1048,6 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1083,6 +1081,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    profileHTML: Schema.Attribute.RichText;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;

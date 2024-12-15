@@ -9,7 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -94,6 +94,9 @@
       "relation": "oneToOne",
       "target": "api::invitation.invitation",
       "mappedBy": "invited_by"
+    },
+    "profileHTML": {
+      "type": "richtext"
     }
   }
 }

@@ -24,11 +24,14 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "reviews"
     },
-    "review_text": {
+    "starts": {
       "max": 5,
       "min": 1,
       "type": "integer",
       "required": true
+    },
+    "review_text": {
+      "type": "string"
     }
   }
 }
