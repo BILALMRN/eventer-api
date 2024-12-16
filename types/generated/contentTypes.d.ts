@@ -460,6 +460,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
+    location: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     reviews: Schema.Attribute.Relation<'oneToMany', 'api::review.review'>;
     start_datetime: Schema.Attribute.DateTime;
@@ -473,7 +474,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     urlphoto: Schema.Attribute.Media<'videos'>;
-    urlvideo: Schema.Attribute.Media<'images'>;
+    urlvideo: Schema.Attribute.String;
   };
 }
 
@@ -562,6 +563,7 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
 export interface ApiTicketTicket extends Struct.CollectionTypeSchema {
   collectionName: 'tickets';
   info: {
+    description: '';
     displayName: 'Ticket';
     pluralName: 'tickets';
     singularName: 'ticket';

@@ -39,14 +39,6 @@
       "type": "datetime",
       "required": false
     },
-    "urlvideo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "urlphoto": {
       "type": "media",
       "multiple": false,
@@ -73,16 +65,22 @@
       "target": "api::review.review",
       "mappedBy": "event"
     },
-    "tickets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ticket.ticket",
-      "mappedBy": "event"
-    },
     "invitations": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::invitation.invitation",
+      "mappedBy": "event"
+    },
+    "location": {
+      "type": "text"
+    },
+    "urlvideo": {
+      "type": "string"
+    },
+    "tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ticket.ticket",
       "mappedBy": "event"
     }
   }
