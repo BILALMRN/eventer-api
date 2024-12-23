@@ -97,6 +97,12 @@
     },
     "profileHTML": {
       "type": "richtext"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "user"
     }
   }
 }
